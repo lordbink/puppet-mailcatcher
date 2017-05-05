@@ -80,7 +80,7 @@ class mailcatcher::params {
           # I give up on this mess. It works now, but I have no idea for how long.
           package { 'tilt':
             ensure   => '1.4.1',
-            provider => 'gem',
+            provider => 'puppet_gem',
             require  => Class['ruby::dev'],
             before   => Package['mailcatcher'],
           }
