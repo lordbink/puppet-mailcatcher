@@ -10,7 +10,7 @@ class mailcatcher::package {
   } ->
   package { 'mailcatcher':
     ensure   => $mailcatcher::version,
-    provider => 'puppet_gem',
+    provider => 'gem',
     require  => Class['ruby::dev'],
   }
 
@@ -20,7 +20,7 @@ class mailcatcher::package {
   if ($mailcatcher::params::fixactivesupportversion) {
     package { 'activesupport':
       ensure   => $mailcatcher::params::fixactivesupportversion,
-      provider => 'puppet_gem',
+      provider => 'gem',
       require  => Class['ruby::dev'],
       before   => Package['mailcatcher'],
     }
@@ -32,7 +32,7 @@ class mailcatcher::package {
   if ($mailcatcher::params::fixeventmachineversion) {
     package { 'eventmachine':
       ensure   => $mailcatcher::params::fixeventmachineversion,
-      provider => 'puppet_gem',
+      provider => 'gem',
       require  => Class['ruby::dev'],
       before   => Package['mailcatcher'],
     }
@@ -40,7 +40,7 @@ class mailcatcher::package {
   if ($mailcatcher::params::fixi18nversion) {
     package { 'i18n':
       ensure   => $mailcatcher::params::fixi18nversion,
-      provider => 'puppet_gem',
+      provider => 'gem',
       require  => Class['ruby::dev'],
       before   => Package['mailcatcher'],
     }
