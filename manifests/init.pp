@@ -69,6 +69,7 @@ class mailcatcher (
   $mailcatcher_path = $mailcatcher::params::mailcatcher_path,
   $service_enable   = $mailcatcher::params::service_enable,
   $version          = $mailcatcher::params::version,
+  $rubygems_update  = false,
 ) inherits mailcatcher::params {
 
   class {'mailcatcher::package': } ->
