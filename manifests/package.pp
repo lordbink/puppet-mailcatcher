@@ -5,6 +5,11 @@ class mailcatcher::package {
   include ruby::dev
   include gcc
 
+
+  package { 'rubygems':
+    ensure => 'absent',
+  }
+
   package { $mailcatcher::params::packages :
     ensure => 'present'
   } ->
@@ -13,7 +18,6 @@ class mailcatcher::package {
     provider => 'gem',
     require  => Class['ruby::dev'],
   }
-
 
   # Needed vor Debian
   # See params.pp for more information
