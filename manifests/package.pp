@@ -1,15 +1,11 @@
 # class mailcatcher::package
 #
+
 class mailcatcher::package {
   include ruby
   include ruby::dev
   include gcc
-
-
-  package { 'rubygems':
-    ensure => 'absent',
-  }
-
+  
   package { $mailcatcher::params::packages :
     ensure => 'present'
   } ->
